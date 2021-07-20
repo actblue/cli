@@ -15,6 +15,7 @@ RELEASE_CHANGELOG.md
 **/bin
 **/src
 !pkg/compute/testdata/build/rust/src
+!pkg/compute/testdata/build/javascript/src
 **/target
 rust-toolchain
 .cargo
