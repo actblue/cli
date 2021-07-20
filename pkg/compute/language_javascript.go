@@ -167,17 +167,10 @@ func (a JavaScript) Build(out io.Writer, verbose bool) error {
 		return fmt.Errorf("getting npm path: %w", err)
 	}
 
-	// TODO: Have asked @till for the relevant arguments needed. The following is
-	// copied from the AssemblyScript file.
 	args := []string{
-		"assemblyscript/index.ts",
-		"--binaryFile",
-		filepath.Join(binDir, "main.wasm"),
-		"--optimize",
-		"--noAssert",
-	}
-	if verbose {
-		args = append(args, "--verbose")
+		"--skip-pkg",
+		filepath.Join("src", "index.js"),
+		filepath.Join(binDir, "index.wasm"),
 	}
 
 	cmd := fstexec.Streaming{
